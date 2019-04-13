@@ -1,0 +1,4 @@
+#Sat Apr 13 20:35:51 EEST 2019
+base.0=D\:\\Work\\MyProjects\\WatchOut\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\5
+path.0=classes.dex
+renamed.0=classes.dex

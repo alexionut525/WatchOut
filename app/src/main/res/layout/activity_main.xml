@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_test"
+
+    android:layout_height="match_parent"
+    tools:context="com.alexspataru.watchout.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#88808080"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:layout_margin="10dp"
+            android:textSize="18sp"
+            android:textColor="#fff"
+            android:text="Score: 550"
+            android:id="@+id/score_pl" />
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/ic_action_pause"
+            android:layout_alignParentRight="true"
+            android:onClick="pauseGame"
+            android:layout_margin="10dp"
+            android:id="@+id/pause_pl"
+            />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/diamond"
+            android:layout_toLeftOf="@id/pause_pl"
+            android:layout_marginRight="5dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/img_diamond"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_coins"
+            android:text="120"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:layout_toLeftOf="@+id/img_diamond"
+            android:layout_marginRight="5dp"
+            android:layout_centerVertical="true"
+
+
+            />
+
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/frame"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tap to start"
+            android:id="@+id/startPL"
+            android:textSize="30sp"
+            android:layout_marginTop="60dp"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/player"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/player1"
+            />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/food"
+            android:src="@drawable/food"
+            />
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:id="@+id/enemy1"
+            android:src="@drawable/enemy1"
+            />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/enemy2"
+            android:src="@drawable/enemy2"
+            />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/diamond"
+            android:src="@drawable/diamond"
+            />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/frame_pl">
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="120dp"
+                android:id="@+id/pausePl"
+                android:src="@drawable/paused" />
+
+            <ImageButton
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:onClick="pauseGame"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/ic_action_start"
+                android:layout_marginTop="170dp"
+                android:id="@+id/start_pl"
+                />
+
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    android:background="@drawable/background_start"
+    tools:context="com.alexspataru.watchout.StartActivity">
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/more"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/ic_action_more"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="sans-serif"
+            android:text="WatchOut"
+            android:textColor="#FFFFFF"
+            android:textSize="35sp" />
+
+
+
+        <ImageButton
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/play"
+            android:background="@drawable/ic_action_play"/>
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_marginTop="30dp"
+            android:layout_height="50dp"
+            android:id="@+id/shop"
+            android:background="@drawable/ic_action_shop"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Store"
+            android:textStyle="bold" />
+
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_marginTop="30dp"
+            android:layout_height="50dp"
+            android:id="@+id/info"
+            android:background="@drawable/ic_action_info"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How to play"
+            android:textStyle="bold" />
+
+
+
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>
