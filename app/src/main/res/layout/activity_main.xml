@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:background="@drawable/background_test"
-
     android:layout_height="match_parent"
     tools:context="com.alexspataru.watchout.MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#88808080"
+        android:background="#884bb9ec"
         >
 
         <TextView
@@ -74,6 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tap to start"
+            android:textColor="#4bb9ec"
             android:id="@+id/startPL"
             android:textSize="30sp"
             android:layout_marginTop="60dp"
@@ -127,14 +127,14 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="120dp"
                 android:id="@+id/pausePl"
-                android:src="@drawable/paused" />
+                android:src="@drawable/ic_paused" />
 
             <ImageButton
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:onClick="pauseGame"
                 android:layout_gravity="center_horizontal"
-                android:background="@drawable/ic_action_start"
+                android:background="@drawable/ic_action_play"
                 android:layout_marginTop="170dp"
                 android:id="@+id/start_pl"
                 />

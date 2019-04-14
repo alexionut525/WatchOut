@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags( WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-
+        sound = new SoundEffects(this);
 
         scoreLabel = (TextView) findViewById(R.id.score_pl);
         startLabel = (TextView) findViewById(R.id.startPL);
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
 
         playerSpeed = Math.round(screenWidth / 59);
         foodSpeed = Math.round(screenWidth / 59);
-        diamondSpeed = Math.round(screenWidth / 35);
+        diamondSpeed = Math.round(screenWidth / 55);
         enemy1Speed = Math.round(screenWidth / 44);
         enemy2Speed = Math.round(screenWidth / 39);
 
@@ -153,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
         food.setX(foodX);
         food.setY(foodY);
 
+
         //enemy1
         enemy1X -= enemy1Speed;
         if (enemy1X < 0){
@@ -174,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
         //diamond
         diamondX -= diamondSpeed;
         if (diamondX < 0){
-            diamondX = screenWidth + 5000;
+            diamondX = screenWidth + 3000;
             diamondY =(int) Math.floor(Math.random() * (frameHeight - diamond.getHeight()));
         }
         diamond.setX(diamondX);
@@ -238,6 +239,8 @@ public class MainActivity extends AppCompatActivity {
         } else {
             if (me.getAction() == MotionEvent.ACTION_DOWN){
                 action_flg = true;
+                sound.wingSound();
+
             } else if (me.getAction() == MotionEvent.ACTION_UP){
                 action_flg = false;
             }
@@ -257,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
 
             score += 1;
             foodX = -10;
-
+            sound.collectSound();
         }
 
 
@@ -271,6 +274,7 @@ public class MainActivity extends AppCompatActivity {
             coins++;
             score += 3;
             diamondX = -10;
+            sound.collectSound();
 
         }
 
@@ -283,7 +287,7 @@ public class MainActivity extends AppCompatActivity {
 
             timer.cancel();
             timer = null;
-
+            sound.loseSound();
 
             SharedPreferences settings = getSharedPreferences("PREFS", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = settings.edit();
@@ -304,7 +308,7 @@ public class MainActivity extends AppCompatActivity {
 
             timer.cancel();
             timer = null;
-
+            sound.loseSound();
 
             SharedPreferences settings = getSharedPreferences("PREFS", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = settings.edit();

@@ -1009,6 +1009,7 @@ drawable enemy1
 drawable enemy2
 drawable food
 drawable gold
+drawable ic_action_back
 drawable ic_action_home
 drawable ic_action_info
 drawable ic_action_more
@@ -1018,12 +1019,22 @@ drawable ic_action_play
 drawable ic_action_restart
 drawable ic_action_shop
 drawable ic_action_start
+drawable ic_facebook
+drawable ic_game_over
+drawable ic_info
+drawable ic_instagram
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_more
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_paused
+drawable ic_play
+drawable ic_play_again
+drawable ic_store
 drawable logo
+drawable logo_start
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1087,6 +1098,7 @@ id all
 id always
 id async
 id auto
+id back
 id barrier
 id beginning
 id blocking
@@ -1127,6 +1139,7 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id facebook
 id feedback
 id fill
 id fill_horizontal
@@ -1151,6 +1164,7 @@ id ifRoom
 id image
 id img_diamond
 id info
+id instagram
 id invisible
 id italic
 id item_touch_helper_previous_elevation
@@ -1161,6 +1175,7 @@ id line1
 id line3
 id listMode
 id list_item
+id llayout
 id masked
 id message
 id middle
@@ -1189,9 +1204,10 @@ id pin
 id play
 id player
 id pressRestart
+id price
 id price2
-id price3
 id price4
+id price5
 id progress_circular
 id progress_horizontal
 id radio
@@ -1226,6 +1242,7 @@ id shopP1
 id shopP2
 id shopP3
 id shopP4
+id shopP5
 id shortcut
 id showCustom
 id showHome
@@ -1247,6 +1264,7 @@ id start
 id startPL
 id start_pl
 id stretch
+id submenu_1
 id submenuarrow
 id submit_area
 id tabMode
@@ -1280,6 +1298,7 @@ id unlabeled
 id unlock2
 id unlock3
 id unlock4
+id unlock5
 id up
 id useLogo
 id view_offset_helper
@@ -1334,6 +1353,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_info
 layout activity_main
 layout activity_result
 layout activity_shop
@@ -1370,6 +1390,7 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 raw collect
 raw lose
+raw wing
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

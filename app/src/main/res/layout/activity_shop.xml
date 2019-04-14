@@ -1,43 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     tools:context="com.alexspataru.watchout.ShopActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Shop"
+        android:text="Store"
+        android:textColor="#003f84"
+        android:textSize="45sp"
+        android:padding="20dp"
         android:layout_centerHorizontal="true"
-        android:textSize="30sp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="30dp"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tv_coins"
         android:text="100"
+        android:textColor="#003f84"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="140dp"/>
 
     <ImageView
-        android:layout_width="15dp"
-        android:layout_height="15dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:src="@drawable/diamond"
-        android:layout_marginTop="103dp"
+        android:layout_marginTop="130dp"
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@+id/tv_coins"
         android:layout_centerHorizontal="true"/>
 
     <ImageButton
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/home"
-        android:background="@drawable/ic_action_home"
+        android:background="@drawable/ic_action_back"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="20dp"/>
@@ -151,13 +155,13 @@
                         android:textColor="#fff"
                         android:layout_centerHorizontal="true"
                         android:textStyle="bold"
-                        android:id="@+id/price3"
+                        android:id="@+id/price"
                         android:layout_alignParentBottom="true"/>
 
                     <ImageView
                         android:layout_width="10dp"
                         android:layout_height="10dp"
-                        android:layout_toRightOf="@+id/price3"
+                        android:layout_toRightOf="@+id/price"
                         android:src="@drawable/diamond"
                         android:layout_margin="3dp"
                         android:layout_alignParentBottom="true"/>
@@ -214,8 +218,61 @@
             </RelativeLayout>
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
+            <RelativeLayout
+                android:id="@+id/shopP5"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="10dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="3dp"
+                    android:src="@drawable/player5a" />
+
+                <RelativeLayout
+                    android:id="@+id/unlock5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#c26c6b6b">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="LOCKED"
+                        android:textColor="#fff" />
+
+                    <TextView
+                        android:id="@+id/price5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="100"
+                        android:textColor="#fff"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="3dp"
+                        android:layout_toRightOf="@+id/price5"
+                        android:src="@drawable/diamond" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
+
 
 </RelativeLayout>

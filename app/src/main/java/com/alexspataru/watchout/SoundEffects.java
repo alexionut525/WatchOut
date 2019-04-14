@@ -11,6 +11,7 @@ public class SoundEffects {
 
     private static int collectSound;
     private static int loseSound;
+    private static int wingSound;
     private static SoundPool sound;
 
     public SoundEffects(Context context){
@@ -33,6 +34,7 @@ public class SoundEffects {
 
         collectSound = sound.load(context, R.raw.collect, 1);
         loseSound = sound.load(context, R.raw.lose, 1);
+        wingSound = sound.load( context,R.raw.wing ,1);
     }
 
     public void collectSound(){
@@ -41,6 +43,9 @@ public class SoundEffects {
 
     public void loseSound(){
         sound.play(loseSound, 1.0f, 1.0f, 1, 0, 1.0f);
+    }
+    public void wingSound(){
+        sound.play(wingSound, 1.0f, 1.0f, 1, 0, 1.0f);
     }
 }
 

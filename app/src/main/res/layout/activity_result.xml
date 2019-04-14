@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/background"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.alexspataru.watchout.ResultActivity">
@@ -14,19 +14,17 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent">
 
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="GAME OVER"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            />
+            android:src="@drawable/ic_game_over"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/score_pl"
             android:text="100"
+            android:textColor="#003f84"
             android:textSize="25sp"
             android:textStyle="bold"
             android:layout_marginTop="30dp" />
@@ -35,6 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Curent Score"
+            android:textColor="#003f84"
             android:textSize="15sp"
             android:textStyle="bold"
             />
@@ -44,6 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="120"
+            android:textColor="#003f84"
             android:id="@+id/highScoreLabel"
             android:textSize="25sp"
             android:textStyle="bold" />
@@ -51,25 +51,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="High Score"
+            android:textColor="#003f84"
             android:textSize="15sp"
             android:textStyle="bold"
 
             />
 
         <TextView
-            android:layout_marginTop="20dp"
+            android:id="@+id/gamesPlayed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/gamesPlayed"
+            android:layout_marginTop="20dp"
             android:text="10"
+            android:textColor="#003f84"
             android:textSize="25sp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Games Played"
+            android:gravity="center"
+            android:textColor="#003f84"
             android:textSize="15sp"
             android:textStyle="bold" />
 
@@ -77,10 +80,11 @@
         <ImageButton
             android:layout_marginTop="110dp"
             android:layout_width="70dp"
+            android:layout_centerHorizontal="true"
             android:layout_height="70dp"
             android:onClick="tryAgain"
             android:id="@+id/again"
-            android:background="@drawable/ic_action_restart"
+            android:background="@drawable/ic_play_again"
             />
 
         <TextView

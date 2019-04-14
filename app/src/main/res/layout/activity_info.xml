@@ -6,16 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="5dp"
-    android:background="@drawable/background"
+
     tools:context="com.alexspataru.watchout.StartActivity">
 
 
 
     <ImageButton
         android:id="@+id/back"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@drawable/ic_action_home"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/ic_action_back"
         tools:ignore="ContentDescription" />
 
     <LinearLayout
@@ -29,17 +29,22 @@
             android:layout_height="wrap_content"
             android:textSize="30sp"
             android:text="How to play"
+            android:textColor="#003f84"
             android:layout_marginBottom="20dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Collect diamonds and coins"
+            android:textStyle="bold"
+            android:textColor="#003f84"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="but avoid enemies"
+            android:textColor="#003f84"
+            android:textStyle="bold"
             android:padding="5dp"
             />
 
@@ -49,8 +54,8 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:src="@drawable/diamond"
                 android:layout_margin="10dp"/>
 
@@ -58,6 +63,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="3 points"
+                android:textColor="#003f84"
+                android:textStyle="bold"
                 android:textSize="18sp"
                 android:layout_margin="10dp"/>
 
@@ -68,8 +75,8 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:src="@drawable/food"
                 android:layout_margin="10dp"/>
 
@@ -77,6 +84,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1 point"
+                android:textColor="#003f84"
+                android:textStyle="bold"
                 android:textSize="18sp"
                 android:layout_margin="10dp"/>
 
@@ -88,15 +97,19 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:src="@drawable/enemy1"
+                android:textColor="#003f84"
+                android:textStyle="bold"
                 android:layout_margin="10dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Enemy"
+                android:textColor="#dd0312"
+                android:textStyle="bold"
                 android:textSize="18sp"
                 android:layout_margin="10dp"/>
 
@@ -104,13 +117,14 @@
 
         <LinearLayout
             android:id="@+id/llayout"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:src="@drawable/enemy2"
                 android:layout_margin="10dp"/>
 
@@ -119,6 +133,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/enemy2"
                 android:text="Enemy"
+                android:textColor="#dd0312"
+                android:textStyle="bold"
                 android:textSize="18sp"
                 android:layout_margin="10dp"/>
 

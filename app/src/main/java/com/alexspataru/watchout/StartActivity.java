@@ -1,6 +1,8 @@
 package com.alexspataru.watchout;
 
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +17,7 @@ public class StartActivity extends AppCompatActivity {
 
 
     ImageButton play, more, shop, info;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

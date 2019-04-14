@@ -14,13 +14,13 @@ import android.widget.Toast;
 
 public class ShopActivity extends AppCompatActivity {
 
-    RelativeLayout shopP1, shopP2, shopP3, shopP4;
-    RelativeLayout unlock2, unlock3, unlock4;
+    RelativeLayout shopP1, shopP2, shopP3, shopP4, shopP5;
+    RelativeLayout unlock2, unlock3, unlock4, unlock5;
 
     ImageButton goHome;
     TextView tv_coins;
 
-    boolean shop2, shop3, shop4;
+    boolean shop2, shop3, shop4, shop5;
 
     int coins, action;
 
@@ -36,10 +36,12 @@ public class ShopActivity extends AppCompatActivity {
         shopP2 = (RelativeLayout) findViewById(R.id.shopP2);
         shopP3 = (RelativeLayout) findViewById(R.id.shopP3);
         shopP4 = (RelativeLayout) findViewById(R.id.shopP4);
+        shopP5 = (RelativeLayout) findViewById( R.id.shopP5 );
 
         unlock2 = (RelativeLayout) findViewById(R.id.unlock2);
         unlock3 = (RelativeLayout) findViewById(R.id.unlock3);
         unlock4 = (RelativeLayout) findViewById(R.id.unlock4);
+        unlock5 = (RelativeLayout) findViewById( R.id.unlock5 );
 
         goHome = (ImageButton) findViewById(R.id.home);
         tv_coins = (TextView) findViewById(R.id.tv_coins);
@@ -50,6 +52,7 @@ public class ShopActivity extends AppCompatActivity {
         shop2 = settings.getBoolean("SHOP2", false);
         shop3 = settings.getBoolean("SHOP3", false);
         shop4 = settings.getBoolean("SHOP4", false);
+        shop5 =  settings.getBoolean( "SHOP5",false );
 
         tv_coins.setText(""+coins);
 
@@ -61,6 +64,9 @@ public class ShopActivity extends AppCompatActivity {
         }
         if (shop4 == true){
             unlock4.setVisibility(View.GONE);
+        }
+        if (shop5 == true){
+            unlock5.setVisibility(View.GONE);
         }
 
 
@@ -171,11 +177,43 @@ public class ShopActivity extends AppCompatActivity {
                 }
             }
         });
+        shopP5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (shop5 == true){
+                    action = 5;
+
+                    SharedPreferences.Editor editor = settings.edit();
+                    editor.putInt("ACTION", action);
+                    editor.commit();
+                    startActivity(new Intent(ShopActivity.this, StartActivity.class));
+
+                } else if (coins >= 100){
+                    shop5 = true;
+                    action = 5;
+                    coins = coins - 100;
+
+                    tv_coins.setText(""+coins);
+                    unlock5.setVisibility(View.GONE);
+
+                    SharedPreferences.Editor editor = settings.edit();
+                    editor.putInt("ACTION", action);
+                    editor.putInt("COINS", coins);
+                    editor.putBoolean("SHOP5", shop5);
+                    editor.commit();
+                    startActivity(new Intent(ShopActivity.this, StartActivity.class));
+
+                } else {
+                    Toast.makeText(ShopActivity.this, "not enough coins", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
 
         goHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ShopActivity.this, StartActivity.class));
+                Intent intent = new Intent( ShopActivity.this,StartActivity.class );
                 finish();
             }
         });
