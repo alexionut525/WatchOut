@@ -1,10 +1,12 @@
 package com.alexspataru.watchout;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -33,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView diamond;
     private ImageView enemy1;
     private ImageView enemy2;
+    private ImageView life;
     ImageButton pauseLb;
 
     private ImageButton pause;
@@ -40,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     private FrameLayout frameLb;
     TextView tv_coins;
+    TextView tv_lifes;
 
     private int frameHeight;
     private int playerSize;
@@ -56,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
     private int enemy1X;
     private int enemy2Y;
     private int enemy2X;
+    private int lifeY;
+    private int lifeX;
 
     private SoundEffects sound;
 
@@ -64,7 +71,9 @@ public class MainActivity extends AppCompatActivity {
     private int diamondSpeed;
     private int enemy1Speed;
     private int enemy2Speed;
+    private int lifeSpeed;
     private int score = 0;
+
 
     private Handler handler = new Handler();
     private Timer timer = new Timer();
@@ -77,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
 
     int action;
     int coins= 0;
+    int lifes = 3;
+
 
 
     @Override
@@ -87,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
         final SharedPreferences settings = getSharedPreferences("PREFS", Context.MODE_PRIVATE);
         action = settings.getInt("ACTION", 1);
         coins = settings.getInt("COINS", 0);
+        lifes = settings.getInt( "LIFES",3 );
 
         getWindow().setFlags( WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -99,9 +111,15 @@ public class MainActivity extends AppCompatActivity {
         player = (ImageView) findViewById(R.id.player);
         food = (ImageView) findViewById(R.id.food);
         diamond = (ImageView) findViewById(R.id.diamond);
+        life = (ImageView) findViewById( R.id.life );
         enemy1 = (ImageView) findViewById(R.id.enemy1);
         enemy2 = (ImageView) findViewById(R.id.enemy2);
         tv_coins =(TextView) findViewById(R.id.tv_coins);
+        tv_lifes = (TextView) findViewById( R.id.tv_lifes );
+
+        //background moving
+        final ImageView backgroundOne = (ImageView) findViewById( R.id.background_one );
+        final ImageView backgroundTwo = (ImageView) findViewById( R.id.background_two );
 
         player.setImageResource(getResources().getIdentifier("player"+action+"a", "drawable", getPackageName()));
 
@@ -125,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
         diamondSpeed = Math.round(screenWidth / 55);
         enemy1Speed = Math.round(screenWidth / 44);
         enemy2Speed = Math.round(screenWidth / 39);
+        lifeSpeed = Math.round( screenWidth/ 55 );
 
         food.setX(-80f);
         food.setY(-80f);
@@ -134,11 +153,34 @@ public class MainActivity extends AppCompatActivity {
         enemy1.setY(-80f);
         enemy2.setX(-80f);
         enemy2.setY(-80f);
+        life.setX( -80f );
+        life.setY(-80f );
 
         scoreLabel.setText("Score: 0");
         tv_coins.setText(""+coins);
+        tv_lifes.setText( ""+lifes);
+
+
+
+        final ValueAnimator animator = ValueAnimator.ofFloat(0.0f, -1.0f);
+        animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.setInterpolator(new LinearInterpolator());
+        animator.setDuration(1500);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                final float progress = (float) animation.getAnimatedValue();
+                final float width = backgroundOne.getWidth();
+                final float translationX = width * progress;
+                backgroundOne.setTranslationX(translationX);
+                backgroundTwo.setTranslationX(translationX + width);
+            }
+        });
+
+            animator.start();
 
     }
+
 
     public void position(){
         hit();
@@ -180,6 +222,15 @@ public class MainActivity extends AppCompatActivity {
         }
         diamond.setX(diamondX);
         diamond.setY(diamondY);
+
+        //life
+        lifeX -= lifeSpeed;
+        if (lifeX < 0){
+            lifeX = screenWidth + 3000;
+            lifeY =(int) Math.floor(Math.random() * (frameHeight - life.getHeight()));
+        }
+        life.setX(lifeX);
+        life.setY(lifeY);
 
 
         //player
@@ -277,6 +328,17 @@ public class MainActivity extends AppCompatActivity {
             sound.collectSound();
 
         }
+        //food hit
+        int lifeCenterX = lifeX + life.getWidth() / 2;
+        int lifeCenterY = lifeY + life.getHeight() / 2;
+
+        if (0 <= lifeCenterX && lifeCenterX <= playerSize &&
+                playerY <= lifeCenterY && lifeCenterY <= playerY + playerSize){
+
+            lifes += 1;
+            lifeX = -10;
+            sound.collectSound();
+        }
 
         //enemy1 hit
         int enemy1CenterX = enemy1X + enemy1.getWidth() / 2;
@@ -305,7 +367,6 @@ public class MainActivity extends AppCompatActivity {
 
         if (0 <= enemy2CenterX && enemy2CenterX <= playerSize &&
                 playerY <= enemy2CenterY && enemy2CenterY <= playerY + playerSize){
-
             timer.cancel();
             timer = null;
             sound.loseSound();

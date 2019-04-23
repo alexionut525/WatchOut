@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="5dp"
-    android:background="@drawable/background_start"
+    android:id="@+id/layout_start_menu"
+    android:background="@drawable/gradient_list"
     tools:context="com.alexspataru.watchout.StartActivity">
 
     <ImageButton

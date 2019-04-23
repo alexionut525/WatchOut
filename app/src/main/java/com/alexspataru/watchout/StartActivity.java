@@ -3,7 +3,9 @@ package com.alexspataru.watchout;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -12,11 +14,13 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
+import android.widget.RelativeLayout;
 
 public class StartActivity extends AppCompatActivity {
 
 
     ImageButton play, more, shop, info;
+
 
 
     @Override
@@ -28,6 +32,14 @@ public class StartActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        //animated gradient background on Main Menu screen
+        RelativeLayout relativeLayout = (RelativeLayout) findViewById( R.id.layout_start_menu );
+        AnimationDrawable animationDrawable = (AnimationDrawable) relativeLayout.getBackground();
+        animationDrawable.setEnterFadeDuration( 2000 );
+        animationDrawable.setExitFadeDuration( 2000 );
+        animationDrawable.start();
+
+        //buttons
         play = (ImageButton) findViewById(R.id.play);
         more = (ImageButton) findViewById(R.id.more);
         shop = (ImageButton) findViewById(R.id.shop);

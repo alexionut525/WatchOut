@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/backgroundColor"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background_test"
     android:layout_height="match_parent"
     tools:context="com.alexspataru.watchout.MainActivity">
 
@@ -52,13 +52,34 @@
             android:text="120"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
-            android:textSize="13sp"
+            android:textSize="15sp"
             android:layout_toLeftOf="@+id/img_diamond"
             android:layout_marginRight="5dp"
+            android:layout_centerVertical="true"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/heart"
+            android:layout_toLeftOf="@id/pause_pl"
+            android:layout_marginRight="75dp"
             android:layout_centerVertical="true"
-
-
+            android:id="@+id/img_lifes"
             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_lifes"
+            android:text="3"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="19sp"
+            android:layout_toLeftOf="@+id/img_lifes"
+            android:layout_marginRight="5dp"
+            android:layout_centerVertical="true"/>
+
+
+
 
 
     </RelativeLayout>
@@ -68,6 +89,18 @@
         android:layout_height="match_parent"
         android:id="@+id/frame"
         >
+        <ImageView
+            android:id="@+id/background_one"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/background_one" />
+
+        <ImageView
+            android:id="@+id/background_two"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/background_two" />
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -96,6 +129,13 @@
             />
 
         <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/life"
+            android:src="@drawable/heart"
+            />
+
+        <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:id="@+id/enemy1"
@@ -117,27 +157,26 @@
             />
 
         <FrameLayout
+            android:id="@+id/frame_pl"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/frame_pl">
+            android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/pausePl"
                 android:layout_width="250dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="120dp"
-                android:id="@+id/pausePl"
                 android:src="@drawable/ic_paused" />
 
             <ImageButton
+                android:id="@+id/start_pl"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:onClick="pauseGame"
                 android:layout_gravity="center_horizontal"
-                android:background="@drawable/ic_action_play"
                 android:layout_marginTop="170dp"
-                android:id="@+id/start_pl"
-                />
+                android:background="@drawable/ic_action_play"
+                android:onClick="pauseGame" />
 
 
         </FrameLayout>
